@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose');
 
-require('dotenv').config();
+require('dotenv/config');
 
 const app = express()
 const port = 3000
@@ -12,6 +12,9 @@ app.use('/posts', (req, res , next) => {
     console.log('Thid is middleware logging')
     next()
 });
+//Import ROUTES
+const postRoute = require('./routes/posts');
+app.use('/posts', postRoute);
 
 //ROUTES
 app.get('/', (req, res) => {
