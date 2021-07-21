@@ -1,6 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const app = express()
 const port = 3000
 
@@ -16,12 +18,9 @@ app.get('/', (req, res) => {
     res.send('we are on HOME')
 });
 
-app.get('/posts', (req,res) => {
-    res.send('we are on posts')
-});
 
 //Connect to DB
-mongoose.connect('mongodb+srv://tamilselvanguru:@mongo4ME@cluster0.1tjkr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+mongoose.connect(process.env.DB_CONNECTION, 
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log('Connected to DB')
 );
