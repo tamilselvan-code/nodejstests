@@ -6,6 +6,7 @@ require('dotenv/config');
 const app = express()
 const port = 3000
 
+app.use(express.json());
 
 //Middlewares
 app.use('/posts', (req, res , next) => {
