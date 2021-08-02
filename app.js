@@ -8,6 +8,9 @@ const port = process.env.PORT
 
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors());
+
 //Middlewares
 app.use('/posts', (req, res , next) => {
     console.log('Thid is middleware logging')
