@@ -28,6 +28,7 @@ router.get('/:postId', async (req,res) => {
 
 //SUBMITS THE POST
 router.post('/', async (req, res) => {
+    console.log("inside Post");
     console.log(req.body);
     
     const post = new Post({
