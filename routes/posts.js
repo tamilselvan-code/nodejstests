@@ -46,8 +46,9 @@ router.post('/', async (req, res) => {
 
 //DELETE THE SPECIFIC POST
 router.delete('/:postId', async (req,res) => {
+    console.log("inside delete post id: " + req.params.postId);
     try {
-        const removedPost = await Post.remove({_id : req.params.postId});
+        const removedPost = await Post.deleteOne({_id : req.params.postId});
         res.json(removedPost);
     } catch (err) {
         res.json({message: err});
