@@ -56,11 +56,11 @@ router.delete('/:postId', async (req,res) => {
 });
 
 //UPDATE THE SPECIFIC POST
-router.patch('/:postId', async (req,res) =>{
+router.patch('/', async (req,res) =>{
     try {
         const updatedPost = await Post.updateOne(
-            {_id : req.params.postId}, 
-            {$set: {title: req.body.title}});
+            {_id : req.body._id}, 
+            {$set: {title: req.body.title, description: req.body.description}});
         res.json(updatedPost);  
     } catch (err) {
         res.json({message: err});
